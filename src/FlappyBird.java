@@ -24,7 +24,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener
     int gravity = 1;
     boolean gameOver = false;
     boolean isPaused = false;
-    boolean inStartMenu = true; // Track if on the start screen
+    boolean inStartMenu = true; // flag for if on the screen
     double score = 0;
     int lives = 3;
 
@@ -89,11 +89,11 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener
         // Timer to place new pipes
         placePipeTimer = new Timer(1500, e -> placePipes());
 
-        // Main game loop (60 FPS)
+        // game loop
         gameLoop = new Timer(1000 / 60, this);
     }
 
-    // Function to place two pipes (top and bottom) with a gap
+    // place pipes
     void placePipes() 
     {
         int randomPipeY = (int) (pipeY - pipeHeight / 4 - Math.random() * (pipeHeight / 2));
@@ -108,7 +108,6 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener
         pipes.add(bottomPipe);
     }
 
-    // Render everything
     public void paintComponent(Graphics g) 
     {
         super.paintComponent(g);
@@ -146,7 +145,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener
             g.drawImage(pipe.img, pipe.x, pipe.y, pipe.width, pipe.height, null);
         }
 
-        // draw score and lives
+        // score and lives
         g.setColor(Color.white);
         g.setFont(new Font("Arial", Font.PLAIN, 28));
         g.drawString("Score: " + (int) score, 10, 35);
@@ -236,7 +235,7 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener
         {
             if (inStartMenu || gameOver) 
             {
-                // Start or restart game
+                // reset logic
                 inStartMenu = false;
                 gameOver = false;
                 pipes.clear();
