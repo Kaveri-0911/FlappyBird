@@ -35,7 +35,7 @@ Make sure you place the following images in the resources directory of your proj
 
 1. Clone the repository:
    bash
-   git clone https://github.com/your-username/flappy-bird-enhanced.git
+   git clone https://github.com/Kaveri-0911/FlappyBird.git
    cd flappy-bird-enhanced
 
 ---
@@ -44,9 +44,9 @@ Make sure you place the following images in the resources directory of your proj
 
 1. Clone the repository:
    bash
-   git clone https://github.com/your-username/flappy-bird-enhanced.git
+   git clone https://github.com/Kaveri-0911/FlappyBird.git
    cd flappy-bird-enhanced
-
+2. To Compile
 javac FlappyBird.java
-
+3. To Run
 java FlappyBird
