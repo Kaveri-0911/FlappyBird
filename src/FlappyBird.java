@@ -18,6 +18,12 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener
     int birdWidth = 34;
     int birdHeight = 24;
 
+    // pipe properties
+    int pipeX = boardWidth;
+    int pipeY = 0;
+    int pipeWidth = 64;
+    int pipeHeight = 512;
+
     // game state variables
     int velocityX = -4;
     int velocityY = 0;
@@ -28,29 +34,9 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener
     double score = 0;
     int lives = 3;
 
-    // pipe properties
-    int pipeX = boardWidth;
-    int pipeY = 0;
-    int pipeWidth = 64;
-    int pipeHeight = 512;
-
     // game loop timers
     Timer gameLoop;
     Timer placePipeTimer;
-
-    class Bird 
-    {
-        int x = birdX;
-        int y = birdY;
-        int width = birdWidth;
-        int height = birdHeight;
-        Image img;
-
-        Bird(Image img) 
-        {
-            this.img = img;
-        }
-    }
 
     class Pipe 
     {
@@ -67,6 +53,20 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener
         }
     }
 
+    class Bird 
+    {
+        int x = birdX;
+        int y = birdY;
+        int width = birdWidth;
+        int height = birdHeight;
+        Image img;
+
+        Bird(Image img) 
+        {
+            this.img = img;
+        }
+    }
+
     Bird bird;
     ArrayList<Pipe> pipes;
     Random random = new Random();
@@ -78,8 +78,8 @@ public class FlappyBird extends JPanel implements ActionListener, KeyListener
         addKeyListener(this);
 
         // Load images 
-        backgroundImg = new ImageIcon(getClass().getResource("/flappybirdbg.png")).getImage();
         birdImg = new ImageIcon(getClass().getResource("/flappybird.png")).getImage();
+        backgroundImg = new ImageIcon(getClass().getResource("/flappybirdbg.png")).getImage();
         topPipeImg = new ImageIcon(getClass().getResource("/toppipe.png")).getImage();
         bottomPipeImg = new ImageIcon(getClass().getResource("/bottompipe.png")).getImage();
 
